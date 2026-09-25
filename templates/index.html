@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wine Quality Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Wine Quality Prediction</h1>
+
+        <form action="/predict" method="post">
+
+            <label>Fixed Acidity</label>
+            <input type="number" step="any" name="fixed_acidity" required>
+
+            <label>Volatile Acidity</label>
+            <input type="number" step="any" name="volatile_acidity" required>
+
+            <label>Citric Acid</label>
+            <input type="number" step="any" name="citric_acid" required>
+
+            <label>Residual Sugar</label>
+            <input type="number" step="any" name="residual_sugar" required>
+
+            <label>Chlorides</label>
+            <input type="number" step="any" name="chlorides" required>
+
+            <label>Free Sulfur Dioxide</label>
+            <input type="number" step="any" name="free_sulfur_dioxide" required>
+
+            <label>Total Sulfur Dioxide</label>
+            <input type="number" step="any" name="total_sulfur_dioxide" required>
+
+            <label>Density</label>
+            <input type="number" step="any" name="density" required>
+
+            <label>pH</label>
+            <input type="number" step="any" name="ph" required>
+
+            <label>Sulphates</label>
+            <input type="number" step="any" name="sulphates" required>
+
+            <label>Alcohol</label>
+            <input type="number" step="any" name="alcohol" required>
+
+            <button type="submit">Predict Wine Quality</button>
+
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Predicted Quality: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
